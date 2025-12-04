@@ -222,6 +222,8 @@ const openContactModal = () => {
       </div>
     </section>
   </main>
+
+  <ContactFormModal v-model="showContactModal" />
 </template>
 
 <style lang="scss" scoped>
