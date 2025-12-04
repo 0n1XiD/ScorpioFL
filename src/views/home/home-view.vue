@@ -3,9 +3,12 @@ import { onMounted, nextTick, ref, reactive } from "vue";
 import ContactFormModal from "@/components/ContactFormModal.vue";
 import CompanyFeatures from "@/components/CompanyFeatures.vue";
 
-import heroBgImage from "@/assets/images/background.jpg";
+import heroBgImage from "@/assets/images/hero.png";
 import bottlesImg from "@/assets/images/diffusors.png";
 import truckImg from "@/assets/images/truck.jpg";
+import placeImg from "@/assets/images/place.jpg";
+import splashImg from "@/assets/images/splash.jpg";
+import splash2Img from "@/assets/images/splash2.jpg";
 
 const fruitsBg =
   "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=2070&auto=format&fit=crop";
@@ -42,89 +45,6 @@ const showContactModal = ref(false);
 const openContactModal = () => {
   showContactModal.value = true;
 };
-
-const form = reactive({
-  name: "",
-  phone: "",
-  email: "",
-  company: "",
-  comment: "",
-});
-
-const errors = reactive({
-  name: "",
-  phone: "",
-  email: "",
-  company: "",
-});
-
-const isSuccessModalOpen = ref(false);
-
-const validateForm = () => {
-  let isValid = true;
-
-  errors.name = "";
-  errors.phone = "";
-  errors.email = "";
-  errors.company = "";
-
-  if (!form.name.trim()) {
-    errors.name = "Введите ваше имя";
-    isValid = false;
-  }
-
-  if (!form.phone.trim()) {
-    errors.phone = "Введите номер телефона";
-    isValid = false;
-  } else if (form.phone.length < 5) {
-    errors.phone = "Некорректный номер";
-    isValid = false;
-  }
-
-  if (!form.company.trim()) {
-    errors.company = "Укажите название компании";
-    isValid = false;
-  }
-
-  if (form.email.trim()) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(form.email)) {
-      errors.email = "Некорректный e-mail";
-      isValid = false;
-    }
-  }
-
-  return isValid;
-};
-
-const submitForm = () => {
-  if (validateForm()) {
-    const subject = `Заявка с сайта Scorpio-Aromat от ${form.company}`;
-    const body = `
-      Имя: ${form.name}
-      Телефон: ${form.phone}
-      Email: ${form.email}
-      Компания: ${form.company}
-      Комментарий: ${form.comment}
-    `;
-
-    window.location.href = `mailto:sogib12899@httpsu.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    console.log("Form data sent to mail client:", form);
-
-    isSuccessModalOpen.value = true;
-
-    form.name = "";
-    form.phone = "";
-    form.email = "";
-    form.company = "";
-    form.comment = "";
-  }
-};
-
-const closeSuccessModal = () => {
-  isSuccessModalOpen.value = false;
-};
 </script>
 
 <template>
@@ -138,18 +58,20 @@ const closeSuccessModal = () => {
         </h1>
 
         <div class="hero__description">
-          <p>
-            СКОРПИО-АРОМАТ — российский производитель пищевых ароматизаторов и отдушек, работающий
-            на рынке с 1993 года. Мы специализируемся на разработке и выпуске ароматизаторов для
-            пищевой промышленности, а также отдушек для косметики, парфюмерии, свечей, диффузоров,
-            бытовой химии и автомобильных ароматизаторов.
+          <p class="hero__lead">
+            Российский производитель с 1993 года. <br />
+            Мы предлагаем более 1000 композиций:
           </p>
-          <p>
-            Ассортимент компании насчитывает более 1000 композиций, адаптированных под различные
-            категории продуктов и технологические процессы.
-            <br /><strong>ОТДУШКИ:</strong> Для косметики, свечей, диффузоров, шампуней, мыла —
-            всего порядка 1000 наименований.
-          </p>
+          <ul class="hero__list">
+            <li>
+              <span class="text-accent">ПИЩЕВЫЕ АРОМАТИЗАТОРЫ</span> — для всех отраслей пищевой
+              промышленности.
+            </li>
+            <li>
+              <span class="text-accent">ОТДУШКИ</span> — для косметики, парфюмерии, свечей и бытовой
+              химии.
+            </li>
+          </ul>
         </div>
 
         <div class="hero__badges">
@@ -174,40 +96,49 @@ const closeSuccessModal = () => {
       <div class="main-card reveal">
         <div class="main-card__content">
           <h2 class="section-title">О КОМПАНИИ</h2>
-          <div class="about-text">
-            <p>
-              <strong>СКОРПИО-АРОМАТ</strong> — один из ведущих российских производителей пищевых
-              ароматизаторов и отдушек, работающий с 1993 года. За более чем 30 лет компания
-              сформировала ассортимент из свыше 1000 ароматических композиций для пищевой
-              промышленности, косметики, парфюмерии, свечей, мыла, бытовой химии и ароматизации
-              помещений. Продукция создаётся на собственном производстве в Московской области и
-              проходит многоуровневый контроль качества, обеспечивающий высокую стабильность,
-              насыщенность и точное соответствие заявленной ноте.
-            </p>
-            <p>
-              Наши ароматизаторы и отдушки разрабатываются по современным рецептурам, включающим
-              фруктовые, сливочные, карамельные, кофейные, травяные, табачные и косметические
-              направления. Широкий выбор позволяет подобрать подходящий аромат для любых задач — от
-              производства напитков или кондитерских изделий до создания парфюмерных композиций,
-              домашних свечей или косметических средств.
-            </p>
-            <p>
-              Лаборатория СКОРПИО-АРОМАТ обеспечивает тестирование каждого продукта: проверяется
-              устойчивость в различных средах, стабильность при хранении, поведение при нагреве и
-              повторяемость аромата. Такой подход делает нашу продукцию одинаково удобной как для
-              промышленных предприятий, так и для hand-made мастерских, интернет-магазинов и частных
-              покупателей.
-            </p>
-            <p>
-              Мы предлагаем оперативную доставку по России, профессиональные консультации технолога
-              и удобную фасовку — от небольших объёмов для тестов до промышленных партий.
-              СКОРПИО-АРОМАТ — это надёжный производитель, который соединяет опыт, качество и
-              современные технологии.
-            </p>
+          <h3 class="about-slogan">Совершенство качества — совершенство вкуса</h3>
+
+          <div class="about-grid">
+            <div class="about-item">
+              <div class="about-info">
+                <h4>30+ ЛЕТ ОПЫТА</h4>
+                <p>
+                  Мы успешно работаем на рынке с 1993 года, являясь одним из ведущих российских
+                  производителей. Располагаем собственным высокотехнологичным производством в
+                  Московской области.
+                </p>
+              </div>
+            </div>
+
+            <div class="about-item">
+              <div class="about-info">
+                <h4>КОНТРОЛЬ КАЧЕСТВА</h4>
+                <p>
+                  Наша современная лаборатория проводит многоступенчатое тестирование продукции,
+                  гарантируя стабильность аромата, безопасность состава и точное соответствие
+                  заявленным нотам.
+                </p>
+              </div>
+            </div>
+
+            <div class="about-item">
+              <div class="about-info">
+                <h4>СЕРВИС И ПОДДЕРЖКА</h4>
+                <p>
+                  Обеспечиваем оперативную доставку по всей России и СНГ. Предлагаем удобную фасовку
+                  от 1 кг и предоставляем профессиональную технологическую поддержку на всех этапах
+                  сотрудничества.
+                </p>
+              </div>
+            </div>
           </div>
+
           <router-link to="/products" class="link-arrow"
             >СМОТРЕТЬ РАЗДЕЛ «ПРОДУКЦИЯ» &rarr;</router-link
           >
+        </div>
+        <div class="main-card__media">
+          <img :src="splashImg" alt="Ароматизаторы Скорпио-Аромат" class="main-card__image" />
         </div>
       </div>
     </section>
@@ -247,6 +178,9 @@ const closeSuccessModal = () => {
 
     <section class="section-advantages container">
       <div class="main-card reveal">
+        <div class="main-card__media">
+          <img :src="splash2Img" alt="Флаконы с ароматизаторами" class="main-card__image" />
+        </div>
         <div class="main-card__content">
           <h2 class="section-title">Наши преимущества</h2>
           <ul class="advantages-list">
@@ -265,11 +199,10 @@ const closeSuccessModal = () => {
             Хочу работать с профессионалами
           </button>
         </div>
-        <div class="main-card__media">
-          <img :src="bottlesImg" alt="Флаконы с ароматизаторами" class="main-card__image" />
-        </div>
       </div>
     </section>
+
+    <CompanyFeatures />
 
     <section class="section-shipping container">
       <div class="shipping-card reveal">
@@ -288,115 +221,22 @@ const closeSuccessModal = () => {
         </div>
       </div>
     </section>
-
-    <CompanyFeatures />
-
-    <section class="section-form" :style="{ backgroundImage: `url(${fruitsBg})` }">
-      <div class="form-overlay"></div>
-      <div class="container relative reveal">
-        <div class="form-wrapper">
-          <h2 class="form-title">ОСТАЛИСЬ ВОПРОСЫ?<br />ЗАКАЖИТЕ ОБРАТНЫЙ ЗВОНОК</h2>
-          <p class="form-subtitle">
-            Оставьте заявку и наш менеджер свяжется с Вами в ближайшее время
-          </p>
-
-          <form class="contact-form" @submit.prevent="submitForm">
-            <div class="form-row">
-              <div class="input-group">
-                <input
-                  type="text"
-                  placeholder="Ваше имя*"
-                  class="form-input"
-                  :class="{ 'has-error': errors.name }"
-                  v-model="form.name"
-                />
-                <span v-if="errors.name" class="error-text">{{ errors.name }}</span>
-              </div>
-
-              <div class="input-group">
-                <input
-                  type="tel"
-                  placeholder="Ваш номер телефона*"
-                  class="form-input"
-                  :class="{ 'has-error': errors.phone }"
-                  v-model="form.phone"
-                />
-                <span v-if="errors.phone" class="error-text">{{ errors.phone }}</span>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="input-group">
-                <input
-                  type="email"
-                  placeholder="Ваш e-mail"
-                  class="form-input"
-                  :class="{ 'has-error': errors.email }"
-                  v-model="form.email"
-                />
-                <span v-if="errors.email" class="error-text">{{ errors.email }}</span>
-              </div>
-
-              <div class="input-group">
-                <input
-                  type="text"
-                  placeholder="Название компании*"
-                  class="form-input"
-                  :class="{ 'has-error': errors.company }"
-                  v-model="form.company"
-                />
-                <span v-if="errors.company" class="error-text">{{ errors.company }}</span>
-              </div>
-            </div>
-
-            <textarea
-              placeholder="Оставьте комментарий"
-              class="form-textarea"
-              v-model="form.comment"
-            ></textarea>
-
-            <button class="btn btn--primary form-btn">Отправить заявку</button>
-            <p class="form-policy">
-              Нажимая на кнопку, вы даете согласие на обработку персональных данных
-            </p>
-          </form>
-        </div>
-      </div>
-
-      <transition name="fade">
-        <div
-          v-if="isSuccessModalOpen"
-          class="success-modal-overlay"
-          @click.self="closeSuccessModal"
-        >
-          <div class="success-modal-content">
-            <div class="success-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-              </svg>
-            </div>
-            <h3>Успешно отправлено!</h3>
-            <p>Спасибо за вашу заявку. Мы свяжемся с вами в ближайшее время.</p>
-            <button class="btn btn--primary" @click="closeSuccessModal">Отлично</button>
-          </div>
-        </div>
-      </transition>
-    </section>
-
-    <ContactFormModal v-model="showContactModal" />
   </main>
 </template>
 
-<style lang="scss">
-$bg: #f5f6f7;
-$card-bg: #ffffff;
-$accent: #f1a41a;
-$green: #4caf50;
-$text: #111214;
-$muted: #6c6f72;
-$white: #ffffff;
+<style lang="scss" scoped>
+$bg: #020617;
+$card-bg: #0f172a;
+$accent: #d4af37;
+$primary: #cb3334;
+$text: #eae0d5;
+$muted: #9ca3af;
+$white: #eae0d5;
 $border-radius: 16px;
+
+body {
+  padding-top: 0;
+}
 
 .home-page {
   background: $bg;
@@ -406,6 +246,7 @@ $border-radius: 16px;
     system-ui,
     -apple-system,
     sans-serif;
+  margin-top: calc(var(--site-header-height) * -1);
 }
 
 .container {
@@ -443,24 +284,24 @@ $border-radius: 16px;
   border: none;
 
   &--primary {
-    background-color: $green;
-    color: $white;
-    box-shadow: 0 4px 10px rgba($green, 0.3);
+    background-color: $primary;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba($primary, 0.3);
 
     &:hover {
-      background-color: darken($green, 8%);
+      background-color: darken($primary, 8%);
       transform: translateY(-2px);
     }
   }
 
   &--outline {
     background-color: transparent;
-    border: 2px solid $white;
-    color: $white;
+    border: 2px solid $accent;
+    color: $accent;
 
     &:hover {
-      background-color: $white;
-      color: $text;
+      background-color: $accent;
+      color: $bg;
     }
   }
 }
@@ -502,7 +343,7 @@ $border-radius: 16px;
       flex: 1 1 50%;
     }
     &__media {
-      flex: 1 1 50%;
+      flex: 1 1 60%;
       height: auto;
       min-height: 100%;
     }
@@ -511,7 +352,7 @@ $border-radius: 16px;
 
 .hero {
   position: relative;
-  min-height: 90vh;
+  min-height: 70vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -519,7 +360,7 @@ $border-radius: 16px;
   align-items: center;
   color: $white;
   margin-bottom: 40px;
-  padding-top: 80px;
+  margin-top: 160px;
 
   &__overlay {
     position: absolute;
@@ -527,7 +368,12 @@ $border-radius: 16px;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.65);
+    background: linear-gradient(
+      to bottom,
+      rgba(2, 6, 23, 0.3) 0%,
+      rgba(2, 6, 23, 0.6) 60%,
+      #020617 100%
+    );
   }
 
   &__container {
@@ -548,14 +394,39 @@ $border-radius: 16px;
   }
 
   &__description {
-    max-width: 700px;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    color: rgba($white, 0.9);
+    max-width: 800px;
+    margin-bottom: 35px;
+    color: $white;
 
-    p {
-      margin-bottom: 15px;
+    .hero__lead {
+      font-size: 1.4rem;
+      line-height: 1.4;
+      margin-bottom: 25px;
+      font-weight: 500;
+    }
+
+    .hero__list {
+      list-style: none;
+      padding: 0;
+      font-size: 1.2rem;
+      line-height: 1.6;
+
+      li {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 8px;
+          height: 8px;
+          background-color: $accent;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+      }
     }
   }
 
@@ -572,7 +443,7 @@ $border-radius: 16px;
       &__icon {
         width: 30px;
         height: 30px;
-        color: $green;
+        color: $accent;
       }
       span {
         font-weight: 700;
@@ -591,19 +462,47 @@ $border-radius: 16px;
 
 // --- 2. ABOUT US STYLES ---
 .section-about {
-  .about-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #333;
+  .about-slogan {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: $accent;
+    margin-bottom: 30px;
+    font-style: italic;
+    letter-spacing: 0.02em;
+  }
 
-    p {
-      margin-bottom: 15px;
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+
+  .about-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+
+    .about-info {
+      h4 {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: 0 0 6px 0;
+        color: $white;
+        text-transform: uppercase;
+      }
+      p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: rgba($white, 0.8);
+        margin: 0;
+      }
     }
   }
 
   .link-arrow {
     display: inline-block;
-    margin-top: 15px;
+    margin-top: 10px;
     font-weight: 700;
     color: $accent;
     text-decoration: none;
@@ -652,7 +551,7 @@ $border-radius: 16px;
 
 // --- 4. SHIPPING CARD STYLES ---
 .shipping-card {
-  background: $white;
+  background: $card-bg;
   border-radius: $border-radius;
   overflow: hidden;
   margin-bottom: 40px;
@@ -672,6 +571,7 @@ $border-radius: 16px;
       font-weight: 800;
       line-height: 1.3;
       margin-bottom: 25px;
+      color: $accent;
     }
   }
 
@@ -716,7 +616,7 @@ $border-radius: 16px;
   }
 
   .stat-item {
-    background: $white;
+    background: $card-bg;
     padding: 20px;
     border-radius: 12px;
     display: flex;
@@ -733,128 +633,19 @@ $border-radius: 16px;
         font-size: 0.9rem;
         font-weight: 700;
         margin: 0;
-        color: $text;
+        color: $accent;
       }
       p {
         margin: 2px 0 0;
         font-size: 0.85rem;
-        color: $muted;
+        color: $text;
       }
     }
   }
 }
 
 // --- 6. FORM SECTION STYLES ---
-.section-form {
-  position: relative;
-  padding: 60px 0;
-  background-size: cover;
-  background-position: center;
-  color: $white;
-
-  .form-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  .relative {
-    position: relative;
-    z-index: 2;
-  }
-
-  .form-wrapper {
-    max-width: 600px;
-  }
-
-  .form-title {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 10px;
-    line-height: 1.2;
-  }
-
-  .form-subtitle {
-    font-size: 1rem;
-    margin-bottom: 30px;
-    opacity: 0.8;
-  }
-
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    .form-row {
-      display: flex;
-      gap: 15px;
-      flex-direction: column;
-      align-items: flex-start;
-      @media (min-width: 600px) {
-        flex-direction: row;
-      }
-    }
-
-    .input-group {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .form-input,
-    .form-textarea {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      padding: 12px 16px;
-      border-radius: 4px;
-      color: $white;
-      width: 100%;
-      font-family: inherit;
-
-      &::placeholder {
-        color: rgba(255, 255, 255, 0.5);
-      }
-
-      &:focus {
-        outline: none;
-        border-color: $accent;
-      }
-
-      &.has-error {
-        border-color: #ff5252;
-        background: rgba(255, 82, 82, 0.1);
-      }
-    }
-
-    .error-text {
-      font-size: 0.75rem;
-      color: #ff5252;
-      margin-top: 4px;
-      margin-left: 2px;
-      font-weight: 500;
-    }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-
-    .form-btn {
-      align-self: flex-start;
-      margin-top: 10px;
-    }
-
-    .form-policy {
-      font-size: 0.75rem;
-      color: rgba(255, 255, 255, 0.4);
-      margin-top: 10px;
-    }
-  }
-}
+// Removed
 
 // Animation
 .reveal {

@@ -1,42 +1,50 @@
 <script lang="ts" setup>
+import clockIcon from "@/assets/images/icons/clock.svg";
+import shoppingIcon from "@/assets/images/icons/shopping.svg";
+import microscopeIcon from "@/assets/images/icons/microscope.svg";
+import qualityIcon from "@/assets/images/icons/quality.svg";
+import deliveryIcon from "@/assets/images/icons/delivery.svg";
+import scientistIcon from "@/assets/images/icons/scientist.svg";
+
 const features: {
   icon: string;
   title: string;
   subtitle: string;
   detail: string;
+  iconClass?: string;
 }[] = [
   {
-    icon: "⌚",
+    icon: clockIcon,
     title: "35 ЛЕТ ОПЫТА ПРОИЗВОДСТВА",
     subtitle: "На рынке с 1993 года",
     detail: "35 ЛЕТ ОПЫТА ПРОИЗВОДСТВА",
   },
   {
-    icon: "🧪",
+    icon: shoppingIcon,
     title: "АССОРТИМЕНТ",
     subtitle: "Более 1000 видов ароматизаторов и отдушек",
     detail: "БОЛЕЕ 1000 ВИДОВ АРОМАТИЗАТОРОВ И ОТДУШЕК",
   },
   {
-    icon: "🔬",
+    icon: microscopeIcon,
     title: "СВОЯ ЛАБОРАТОРИЯ",
     subtitle: "Собственная лаборатория и разработка рецептур",
     detail: "СОБСТВЕННАЯ ЛАБОРАТОРИЯ И РАЗРАБОТКА РЕЦЕПТУР",
   },
   {
-    icon: "✅",
+    icon: qualityIcon,
     title: "КАЧЕСТВО",
     subtitle: "Качество и стабильность каждой партии",
     detail: "КАЧЕСТВО И СТАБИЛЬНОСТЬ КАЖДОЙ ПАРТИИ",
   },
   {
-    icon: "🚚",
+    icon: deliveryIcon,
     title: "ФАСОВКА И ДОСТАВКА",
     subtitle: "Удобная фасовка и быстрая доставка",
     detail: "УДОБНАЯ ФАСОВКА И БЫСТРАЯ ДОСТАВКА",
   },
   {
-    icon: "👨‍🔬",
+    icon: scientistIcon,
     title: "ТЕХНОЛОГ",
     subtitle: "Поддержка технолога при подборе ароматов",
     detail: "ПОДДЕРЖКА ТЕХНОЛОГА ПРИ ПОДБОРЕ АРОМАТОВ",
@@ -60,7 +68,9 @@ const featureBlocks = chunkArray(features, 3);
 
     <div v-for="(block, index) in featureBlocks" :key="index" class="feature-block-row reveal">
       <div v-for="(feature, idx) in block" :key="idx" class="feature-card">
-        <div class="feature-card__icon">{{ feature.icon }}</div>
+        <div class="feature-card__icon">
+          <img :src="feature.icon" :alt="feature.title" :class="feature.iconClass" />
+        </div>
         <div class="feature-card__text">
           <p class="feature-card__detail">{{ feature.detail }}</p>
         </div>
@@ -70,11 +80,11 @@ const featureBlocks = chunkArray(features, 3);
 </template>
 
 <style lang="scss" scoped>
-$bg: #f5f6f7;
-$card-bg: #ffffff;
-$accent: #f1a41a;
+$bg: #020617;
+$card-bg: #0f172a;
+$accent: #D4AF37;
 $green: #4caf50;
-$text: #111214;
+$text: #EAE0D5;
 $border-radius: 12px;
 
 .section-company-features {
@@ -86,7 +96,7 @@ $border-radius: 12px;
 .section-title {
   text-align: center;
   margin-bottom: 40px;
-  color: #333;
+  color: $text;
   font-size: 2.2rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -117,7 +127,7 @@ $border-radius: 12px;
     transform 0.3s ease,
     box-shadow 0.3s ease;
 
-  border: 1px solid rgba(0, 150, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 
   &:hover {
     transform: translateY(-5px);
@@ -125,13 +135,16 @@ $border-radius: 12px;
   }
 
   &__icon {
-    font-size: 3.5rem;
+    width: 64px;
+    height: 64px;
     margin-bottom: 15px;
-    line-height: 1;
-  }
-
-  .feature-card__icon:nth-child(4) {
-    color: $green;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: invert(1);
+    }
   }
 
   &__detail {

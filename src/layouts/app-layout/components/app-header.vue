@@ -4,7 +4,6 @@ import { useRoute } from "vue-router";
 import ContactFormModal from "@/components/ContactFormModal.vue";
 import logoSvg from "@/assets/images/icons/logo.svg";
 
-const headerClass = ref("");
 const mobileMenuOpen = ref(false);
 
 const route = useRoute();
@@ -23,7 +22,7 @@ const closeMobileMenu = () => {
 </script>
 
 <template>
-  <header class="header" :class="headerClass">
+  <header class="header">
     <div class="header__container container">
       <div class="header__top">
         <div class="header__left">
@@ -127,13 +126,9 @@ const closeMobileMenu = () => {
 </template>
 
 <style lang="scss" scoped>
-$bg-top: #ffffff;
-$text-top: #111111;
-$border-top: #eeeeee;
-
-$bg-scrolled: #ffffff;
-$text-scrolled: #111111;
-$border-scrolled: #eeeeee;
+$bg-top: #0f172a;
+$text-top: #EAE0D5;
+$border-top: #1e293b;
 
 $color-red: #d32f2f;
 $color-green: #4caf50;
@@ -151,39 +146,23 @@ $color-hover-red: darken($color-red, 10%);
   background-color: $bg-top;
   color: $text-top;
   box-shadow: none;
-
-  transition:
-    background-color 0.4s ease,
-    color 0.4s ease,
-    box-shadow 0.4s ease,
-    padding 0.3s ease;
+  padding-bottom: 5px;
 
   &__top {
     height: 85px;
+    border-bottom-color: $border-top;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
   }
 
-  &.is-scrolled {
-    background-color: $bg-scrolled;
-    color: $text-scrolled;
-    box-shadow: none;
-    padding-bottom: 5px;
+  .header__description {
+    color: #9ca3af;
+    border-left-color: #1e293b;
+  }
 
-    .header__top {
-      height: 85px;
-      border-bottom-color: $border-scrolled;
-      padding-bottom: 10px;
-      margin-bottom: 10px;
-    }
-
-    .header__description {
-      color: #555;
-      border-left-color: #ddd;
-    }
-
-    .nav-link:not(.nav-link--highlight) {
-      &:hover {
-        color: $color-red;
-      }
+  .nav-link:not(.nav-link--highlight) {
+    &:hover {
+      color: $color-red;
     }
   }
 
@@ -225,15 +204,16 @@ $color-hover-red: darken($color-red, 10%);
       width: 260px;
       height: auto;
       display: block;
+      filter: invert(1);
     }
   }
 
   &__description {
     font-size: 0.85rem;
     line-height: 1.3;
-    color: #666;
+    color: #9ca3af;
     max-width: 300px;
-    border-left: 1px solid #ddd;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
     padding-left: 20px;
     transition:
       color 0.4s ease,
@@ -429,7 +409,7 @@ $color-hover-red: darken($color-red, 10%);
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.95rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: background-color 0.2s;
 
     &:hover {

@@ -191,11 +191,11 @@ onMounted(async () => {
 </template>
 
 <style lang="scss">
-$bg: #f5f6f7;
-$card-bg: #ffffff;
-$accent: #f1a41a;
-$text: #111214;
-$muted: #6c6f72;
+$bg: #020617;
+$card-bg: #0f172a;
+$accent: #D4AF37;
+$text: #EAE0D5;
+$muted: #9ca3af;
 $border-radius: 16px;
 
 .contacts-page {
@@ -318,6 +318,7 @@ $border-radius: 16px;
         height: 18px;
         margin-right: 8px;
         opacity: 0.7;
+        filter: invert(1);
       }
     }
   }
@@ -361,18 +362,35 @@ $border-radius: 16px;
     }
 
     &__list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+      background: $card-bg;
+      border-radius: $border-radius;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
       @media (min-width: 768px) {
-        grid-template-columns: 1fr 1fr;
+        flex-direction: row;
       }
     }
 
     &__item {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
+      padding: 30px;
+      flex: 1;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      @media (min-width: 768px) {
+        border-bottom: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+
       h4 {
         margin: 0 0 16px 0;
         font-size: 1.1rem;
@@ -385,7 +403,7 @@ $border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #f9fafb;
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 8px;
       padding: 10px;
       cursor: zoom-in;
@@ -398,7 +416,7 @@ $border-radius: 16px;
 
       &:hover {
         border-color: rgba($accent, 0.3);
-        background: #f0f2f5;
+        background: rgba(255, 255, 255, 0.1);
 
         .schemes__zoom-hint {
           opacity: 1;
@@ -411,6 +429,7 @@ $border-radius: 16px;
         max-height: 100%;
         object-fit: contain;
         transition: transform 0.3s;
+        filter: invert(1);
       }
     }
 
@@ -475,7 +494,7 @@ $border-radius: 16px;
 
         &.copy-text {
           font-family: monospace;
-          background: #f0f0f0;
+          background: rgba(255, 255, 255, 0.1);
           padding: 4px 8px;
           border-radius: 4px;
           display: inline-block;
@@ -483,7 +502,7 @@ $border-radius: 16px;
 
         &.text-muted {
           font-size: 0.95rem;
-          color: lighten($text, 20%);
+          color: $muted;
           margin-bottom: 0;
         }
       }

@@ -216,10 +216,10 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
-$dark-bg: #1a1a1a;
+$dark-bg: #141414;
 $overlay-bg: rgba(0, 0, 0, 0.8);
-$text-light: #ffffff;
-$text-muted: #aaaaaa;
+$text-light: #EAE0D5;
+$text-muted: #9ca3af;
 $input-border: #444444;
 $input-focus: #4caf50;
 $error-color: #ff5252;

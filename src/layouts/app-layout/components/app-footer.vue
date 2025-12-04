@@ -58,9 +58,9 @@ const phone = "+7 (495) 935-73-64";
 </template>
 
 <style lang="scss" scoped>
-$footer-bg: #ffffff;
-$text-white: #111111;
-$text-gray: #666666;
+$footer-bg: #0f172a;
+$text-white: #EAE0D5;
+$text-gray: #9ca3af;
 $accent-wb: #cb11ab;
 $accent-ozon: #005bff;
 
@@ -73,7 +73,7 @@ $accent-ozon: #005bff;
     system-ui,
     -apple-system,
     sans-serif;
-  border-top: 1px solid #e0e0e0;
+  border-top: 1px solid #1e293b;
   .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -107,6 +107,7 @@ $accent-ozon: #005bff;
         width: 280px;
         height: auto;
         display: block;
+        filter: invert(1);
       }
     }
   }
@@ -150,7 +151,7 @@ $accent-ozon: #005bff;
     font-size: 0.85rem;
 
     .divider {
-      color: #ddd;
+      color: #1e293b;
     }
 
     .marketplace-link {
@@ -204,7 +205,7 @@ $accent-ozon: #005bff;
   // --- Разделитель ---
   &__divider {
     border: none;
-    border-top: 1px solid #333;
+    border-top: 1px solid #1e293b;
     margin: 0 0 25px 0;
   }
 

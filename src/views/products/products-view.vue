@@ -3,37 +3,55 @@ import { onMounted, nextTick, ref } from "vue";
 import ContactFormModal from "@/components/ContactFormModal.vue";
 import sertificatsImage from "@/assets/images/sertificats.jpg";
 
+// Импорт изображений категорий
+import fructsImg from "@/assets/images/fructs.jpg";
+import caramelImg from "@/assets/images/caramel.jpg";
+import creamImg from "@/assets/images/cream.jpg";
+import nutsImg from "@/assets/images/nuts.jpg";
+import coctailsImg from "@/assets/images/coctails.jpg";
+import grassImg from "@/assets/images/grass.jpg";
+import meatImg from "@/assets/images/meat.jpg";
+import hookahImg from "@/assets/images/hookah.jpg";
+
+import cosmeticsImg from "@/assets/images/cosmetics.jpg";
+import parfumeImg from "@/assets/images/parfume.jpg";
+import showerImg from "@/assets/images/shower.jpg";
+import candlesImg from "@/assets/images/candles.jpg";
+import diffusorsImg from "@/assets/images/diffusors.jpg";
+import soapImg from "@/assets/images/soap.jpg";
+import cleaningImg from "@/assets/images/cleaning.jpg";
+import dustImg from "@/assets/images/dust.jpg";
+
 // Импорт партнеров
 import partner1 from "@/assets/images/partner1.jpg";
 import partner2 from "@/assets/images/partner2.jpg";
-import partner3 from "@/assets/images/partner3.jpg";
 import partner4 from "@/assets/images/partner4.jpg";
 import partner5 from "@/assets/images/partner5.jpg";
 import partner6 from "@/assets/images/partner6.jpg";
 import partner7 from "@/assets/images/partner7.jpg";
 
-const partnerLogos = [partner1, partner2, partner3, partner4, partner5, partner6, partner7];
+const partnerLogos = [partner1, partner2, partner4, partner5, partner6, partner7];
 
 const flavorImages = {
-  fruits: "",
-  caramel: "",
-  dairy: "",
-  coffee: "",
-  cocktails: "",
-  herbs: "",
-  meat: "",
-  hookah: "",
+  fruits: fructsImg,
+  caramel: caramelImg,
+  dairy: creamImg,
+  coffee: nutsImg,
+  cocktails: coctailsImg,
+  herbs: grassImg,
+  meat: meatImg,
+  hookah: hookahImg,
 };
 
 const fragranceImages = {
-  cosmetics: "",
-  perfume: "",
-  shampoo: "",
-  candles: "",
-  diffusers: "",
-  soap: "",
-  cleaners: "",
-  powder: "",
+  cosmetics: cosmeticsImg,
+  perfume: parfumeImg,
+  shampoo: showerImg,
+  candles: candlesImg,
+  diffusers: diffusorsImg,
+  soap: soapImg,
+  cleaners: cleaningImg,
+  powder: dustImg,
 };
 
 const flavorCategories = [
@@ -210,13 +228,13 @@ const showContactModal = ref(false);
             class="category-card"
             :aria-label="category.alt"
           >
+            <h3 class="category-card__title">{{ category.name }}</h3>
             <div class="category-card__media" v-if="category.image">
               <img :src="category.image" :alt="category.alt" class="category-card__image" />
             </div>
             <div class="category-card__media category-card__media--icon" v-else>
               <span class="category-card__icon-large">{{ category.icon }}</span>
             </div>
-            <h3 class="category-card__title">{{ category.name }}</h3>
           </a>
         </div>
       </section>
@@ -245,13 +263,13 @@ const showContactModal = ref(false);
             class="category-card"
             :aria-label="category.alt"
           >
+            <h3 class="category-card__title">{{ category.name }}</h3>
             <div class="category-card__media" v-if="category.image">
               <img :src="category.image" :alt="category.alt" class="category-card__image" />
             </div>
             <div class="category-card__media category-card__media--icon" v-else>
               <span class="category-card__icon-large">{{ category.icon }}</span>
             </div>
-            <h3 class="category-card__title">{{ category.name }}</h3>
           </a>
         </div>
       </section>
@@ -291,14 +309,15 @@ const showContactModal = ref(false);
 </template>
 
 <style lang="scss" scoped>
-$bg: #f5f6f7;
-$card-bg: #ffffff;
-$accent: #f1a41a;
-$green: #4caf50;
-$text: #111214;
-$muted: #6c6f72;
-$white: #ffffff;
+$bg: #020617;
+$card-bg: #0f172a;
+$accent: #d4af37;
+$primary: #cb3334;
+$text: #eae0d5;
+$muted: #9ca3af;
+$white: #eae0d5;
 $border-radius: 12px;
+$card-gradient: linear-gradient(145deg, #0f172a, #020617);
 
 .products-page {
   background: $bg;
@@ -353,7 +372,7 @@ $border-radius: 12px;
 
   p {
     margin-bottom: 15px;
-    color: #333;
+    color: $text;
   }
 
   strong {
@@ -363,7 +382,7 @@ $border-radius: 12px;
 
   .final-note {
     font-weight: 600;
-    color: $green;
+    color: $primary;
     margin-top: 20px;
     margin-bottom: 0;
   }
@@ -392,41 +411,61 @@ $border-radius: 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: $card-bg;
-  border-radius: $border-radius;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   text-decoration: none;
   color: $text;
   position: relative;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  // Убрали padding-bottom, так как кнопки больше нет,
-  // но добавим немного отступа снизу для заголовка
-  padding-bottom: 25px;
+  transition: transform 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 
-    // Подсветка заголовка при наведении
     .category-card__title {
       color: $accent;
     }
+
+    .category-card__media {
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      border-color: rgba($accent, 0.3);
+    }
+
+    .category-card__image {
+      transform: scale(1.08);
+    }
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    text-align: center;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    min-height: 3.6rem;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
   }
 
   &__media {
-    height: 180px;
     width: 100%;
-    margin-bottom: 20px;
+    aspect-ratio: 1;
+    background: $card-gradient;
+    border-radius: $border-radius;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition:
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
 
     &--icon {
-      background-color: #f0f0f0;
+      // background is already set by main media style
+      color: $accent;
     }
   }
 
@@ -435,24 +474,13 @@ $border-radius: 12px;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
+    opacity: 0.8; // Slightly dim images to match dark theme
   }
 
   &__icon-large {
-    font-size: 5rem;
+    font-size: 4rem;
     display: block;
-  }
-
-  &:hover &__image {
-    transform: scale(1.08);
-  }
-
-  &__title {
-    font-size: 1.15rem;
-    font-weight: 700;
-    margin: 0 20px;
-    text-align: center;
-    line-height: 1.3;
-    transition: color 0.3s ease;
+    opacity: 0.9;
   }
 }
 
@@ -468,7 +496,7 @@ $border-radius: 12px;
 
   @media (min-width: 900px) {
     grid-template-columns: 1fr 1fr;
-    align-items: start;
+    align-items: stretch;
   }
 }
 
@@ -478,6 +506,8 @@ $border-radius: 12px;
   padding: 30px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
   height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .col-title {
     font-size: 1.25rem;
@@ -498,7 +528,7 @@ $border-radius: 12px;
 .certs-image-box {
   border-radius: 8px;
   overflow: hidden;
-  border: 1px solid #eee;
+  border: 1px solid rgba($text, 0.1);
 
   .certs-img {
     width: 100%;
@@ -511,42 +541,37 @@ $border-radius: 12px;
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-
-  @media (min-width: 500px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  gap: 20px;
 }
 
 .partner-item {
-  background: #fff;
-  border: 1px solid #f0f0f0;
-  border-radius: 8px;
-  padding: 10px;
+  background: #ffffff;
+  border-radius: 16px;
+  aspect-ratio: 2/2;
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 3/2;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: all 0.4s ease;
-  }
+  overflow: hidden;
 
   &:hover {
-    border-color: rgba($accent, 0.3);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
 
-    img {
-      filter: grayscale(0%);
-      opacity: 1;
-      transform: scale(1.05);
-    }
+  img {
+    width: 65%;
+    height: 65%;
+    object-fit: contain;
+    filter: none;
+    opacity: 1;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
   }
 }
 
