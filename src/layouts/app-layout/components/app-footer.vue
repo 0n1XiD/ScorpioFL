@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import logoSvg from "@/assets/images/icons/logo.svg";
+import logoSvg from "@/assets/images/icons/logo.png";
 
 const links = [
   { text: "Наша продукция", href: "/products" },
@@ -107,7 +107,6 @@ $accent-ozon: #005bff;
         width: 280px;
         height: auto;
         display: block;
-        filter: invert(1);
       }
     }
   }

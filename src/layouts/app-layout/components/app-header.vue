@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 import ContactFormModal from "@/components/ContactFormModal.vue";
-import logoSvg from "@/assets/images/icons/logo.svg";
+import logoSvg from "@/assets/images/icons/logo.png";
 
 const mobileMenuOpen = ref(false);
 
@@ -204,7 +204,6 @@ $color-hover-red: darken($color-red, 10%);
       width: 260px;
       height: auto;
       display: block;
-      filter: invert(1);
     }
   }
 
