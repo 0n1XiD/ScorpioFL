@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, nextTick, ref } from "vue";
 import ContactFormModal from "@/components/ContactFormModal.vue";
-import sertificatsImage from "@/assets/images/sertificats.jpg";
 
 // Импорт изображений категорий
 import fructsImg from "@/assets/images/fructs.jpg";
@@ -30,7 +29,26 @@ import partner5 from "@/assets/images/partner5.jpg";
 import partner6 from "@/assets/images/partner6.jpg";
 import partner7 from "@/assets/images/partner7.jpg";
 
+import sertificat1 from "@/assets/images/sertificat1.jpg";
+import sertificat2 from "@/assets/images/sertificat2.jpg";
+import sertificat3 from "@/assets/images/sertificat3.jpg";
+import sertificat4 from "@/assets/images/sertificat4.jpg";
+import sertificat5 from "@/assets/images/sertificat5.jpg";
+import sertificat6 from "@/assets/images/sertificat6.jpg";
+import sertificat7 from "@/assets/images/sertificat7.jpg";
+import sertificat8 from "@/assets/images/sertificat8.jpg";
+
 const partnerLogos = [partner1, partner2, partner4, partner5, partner6, partner7];
+const certificateImages = [
+  sertificat1,
+  sertificat2,
+  sertificat3,
+  sertificat4,
+  sertificat5,
+  sertificat6,
+  sertificat7,
+  sertificat8,
+];
 
 const flavorImages = {
   fruits: fructsImg,
@@ -204,10 +222,9 @@ const showContactModal = ref(false);
 
         <div class="description-block reveal">
           <p>
-            Пищевые ароматизаторы <strong>СКОРПИО-АРОМАТ</strong> — это профессиональные
-            вкусо-ароматические композиции для промышленного и ремесленного производства продуктов
-            питания. В ассортименте представлены направления, охватывающие ключевые сегменты
-            вкусовой индустрии:
+            Пищевые ароматизаторы <strong>СКОРПИО-АРОМАТ™</strong> — вкусо-ароматические композиции
+            для промышленного производства продуктов питания. В ассортименте представлены
+            направления, охватывающие ключевые сегменты вкусовой индустрии:
             <strong
               >фруктово-ягодные, карамельно-сливочные, молочно-сливочные, шоколадно-ореховые и
               кофейные, коктейльные и напиточные, травяно-пряные, мясные/рыбные/колбасные, табачные
@@ -246,12 +263,12 @@ const showContactModal = ref(false);
 
         <div class="description-block reveal">
           <p>
-            <strong>Отдушки СКОРПИО-АРОМАТ</strong> — это профессиональные ароматические композиции
-            для косметики, парфюмерии, бытовой химии, мыла, шампуней, гелей и ароматизации
-            помещений.
+            <strong>Отдушки СКОРПИО-АРОМАТ™</strong> — ароматические композиции для косметики,
+            парфюмерии, бытовой химии, мыла, шампуней, гелей и ароматизации помещений, диффузоров,
+            стиральных порошков.
           </p>
           <p class="final-note">
-            Все отдушки СКОРПИО-АРОМАТ создаются с учётом специфики каждой категории.
+            Все отдушки СКОРПИО-АРОМАТ™ создаются с учётом специфики каждой категории.
           </p>
         </div>
 
@@ -282,18 +299,18 @@ const showContactModal = ref(false);
             <h3 class="col-title">Сертификация</h3>
             <p class="trust-text">
               Вся наша продукция сертифицирована и произведена в соответствии с ГОСТом РФ и строгой
-              политикой качества компании "Скорпио-Аромат".
+              политикой качества компании "Скорпио-Аромат™".
             </p>
-            <div class="certs-image-box">
-              <img :src="sertificatsImage" alt="Сертификаты соответствия" class="certs-img" />
+            <div class="partners-grid">
+              <div class="partner-item" v-for="(cert, idx) in certificateImages" :key="idx">
+                <img :src="cert" :alt="`Сертификат ${idx + 1}`" />
+              </div>
             </div>
           </div>
 
           <div class="trust-col trust-col--partners">
             <h3 class="col-title">Нам доверяют</h3>
-            <p class="trust-text">
-              Мы гордимся долгосрочным сотрудничеством с ведущими производителями отрасли.
-            </p>
+            <p class="trust-text">С нами работают мировые лидеры пищевой промышленности</p>
             <div class="partners-grid">
               <div class="partner-item" v-for="(logo, idx) in partnerLogos" :key="idx">
                 <img :src="logo" :alt="`Партнер ${idx + 1}`" />
@@ -521,49 +538,43 @@ $card-gradient: linear-gradient(145deg, #0f172a, #020617);
     color: $muted;
     margin-bottom: 25px;
     line-height: 1.5;
-  }
-}
-
-// Блок сертификатов
-.certs-image-box {
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid rgba($text, 0.1);
-
-  .certs-img {
-    width: 100%;
-    height: auto;
-    display: block;
+    min-height: 4.5rem; // Выравниваем высоту текста, чтобы сетки начинались на одном уровне
+    display: flex;
+    align-items: center;
   }
 }
 
 // Сетка партнеров
 .partners-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+
+  @media (min-width: 1200px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .partner-item {
   background: #ffffff;
-  border-radius: 16px;
-  aspect-ratio: 2/2;
+  border-radius: 12px; // Чуть меньше радиус
+  aspect-ratio: 3/2;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 15px; // Чуть меньше паддинг
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   overflow: hidden;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   }
 
   img {
-    width: 65%;
-    height: 65%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     filter: none;
     opacity: 1;

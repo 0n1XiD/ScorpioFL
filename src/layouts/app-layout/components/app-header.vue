@@ -29,10 +29,7 @@ const closeMobileMenu = () => {
           <a href="/" class="header__logo-link">
             <img :src="logoSvg" alt="SCORPIO-АРОМАТЫ" class="logo-img" />
           </a>
-          <div class="header__description">
-            Надёжный производитель, который соединяет опыт, <br />
-            качество и современные технологии
-          </div>
+          <div class="header__description">Совершенство качества - совершенство вкуса!</div>
         </div>
 
         <div class="header__right">
@@ -127,7 +124,7 @@ const closeMobileMenu = () => {
 
 <style lang="scss" scoped>
 $bg-top: #0f172a;
-$text-top: #EAE0D5;
+$text-top: #eae0d5;
 $border-top: #1e293b;
 
 $color-red: #d32f2f;
@@ -156,6 +153,7 @@ $color-hover-red: darken($color-red, 10%);
   }
 
   .header__description {
+    font-size: 16px;
     color: #9ca3af;
     border-left-color: #1e293b;
   }
@@ -183,7 +181,6 @@ $color-hover-red: darken($color-red, 10%);
     padding-bottom: 15px;
     margin-bottom: 15px;
 
-    // Разделитель по умолчанию для темной темы
     border-bottom: 1px solid $border-top;
     transition:
       border-bottom-color 0.4s ease,

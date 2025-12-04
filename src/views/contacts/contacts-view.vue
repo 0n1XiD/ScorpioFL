@@ -71,13 +71,6 @@ onMounted(async () => {
               </div>
 
               <div class="department__item">
-                <h4>Международный</h4>
-                <div class="department__phones">
-                  <a class="link-phone" href="tel:+883510001246375">+8835-1000-124-63-75</a>
-                </div>
-              </div>
-
-              <div class="department__item">
                 <h4>Адрес офиса</h4>
                 <div class="text">Московская область, г. Одинцово, ул. Западная д.19</div>
               </div>
@@ -193,8 +186,8 @@ onMounted(async () => {
 <style lang="scss">
 $bg: #020617;
 $card-bg: #0f172a;
-$accent: #D4AF37;
-$text: #EAE0D5;
+$accent: #d4af37;
+$text: #eae0d5;
 $muted: #9ca3af;
 $border-radius: 16px;
 

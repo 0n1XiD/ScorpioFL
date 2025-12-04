@@ -59,7 +59,7 @@ const phone = "+7 (495) 935-73-64";
 
 <style lang="scss" scoped>
 $footer-bg: #0f172a;
-$text-white: #EAE0D5;
+$text-white: #eae0d5;
 $text-gray: #9ca3af;
 $accent-wb: #cb11ab;
 $accent-ozon: #005bff;

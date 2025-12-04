@@ -1,17 +1,12 @@
 <script lang="ts" setup>
-import { onMounted, nextTick, ref, reactive } from "vue";
+import { onMounted, nextTick, ref } from "vue";
 import ContactFormModal from "@/components/ContactFormModal.vue";
 import CompanyFeatures from "@/components/CompanyFeatures.vue";
 
 import heroBgImage from "@/assets/images/hero.png";
-import bottlesImg from "@/assets/images/diffusors.png";
 import truckImg from "@/assets/images/truck.jpg";
-import placeImg from "@/assets/images/place.jpg";
 import splashImg from "@/assets/images/splash.jpg";
 import splash2Img from "@/assets/images/splash2.jpg";
-
-const fruitsBg =
-  "https://images.unsplash.com/photo-1610832958506-aa56368176cf?q=80&w=2070&auto=format&fit=crop";
 
 const leafIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>`;
 const flaskIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 2v7.31"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/></svg>`;
@@ -54,24 +49,23 @@ const openContactModal = () => {
       <div class="container hero__container reveal">
         <h1 class="hero__title">
           ПИЩЕВЫЕ АРОМАТИЗАТОРЫ <br />
-          <span class="text-accent">SCORPIO-АРОМАТ</span>
+          <span class="text-accent">SCORPIO-АROMAT ™</span>
         </h1>
 
         <div class="hero__description">
           <p class="hero__lead">
-            Российский производитель с 1993 года. <br />
-            Мы предлагаем более 1000 композиций:
+            <strong>СКОРПИО-АРОМАТ™</strong> — российский производитель пищевых ароматизаторов с
+            более чем 30-летним опытом работы. Специализируемся на разработке и выпуске
+            ароматизаторов для всех отраслей пищевой промышленности.
           </p>
-          <ul class="hero__list">
-            <li>
-              <span class="text-accent">ПИЩЕВЫЕ АРОМАТИЗАТОРЫ</span> — для всех отраслей пищевой
-              промышленности.
-            </li>
-            <li>
-              <span class="text-accent">ОТДУШКИ</span> — для косметики, парфюмерии, свечей и бытовой
-              химии.
-            </li>
-          </ul>
+          <p class="hero__text">
+            Ассортимент ароматизаторов насчитывает более 10 000 композиций, адаптированных под
+            различные категории продуктов и технологические процессы.
+          </p>
+          <p class="hero__text">
+            Производство отдушек начато в 2024г и насчитывает более 1000 наименований для:
+            парфюмерии, косметики, свечей, диффузоров, бытовой химии, стиральных порошков и т.д.
+          </p>
         </div>
 
         <div class="hero__badges">
@@ -103,9 +97,10 @@ const openContactModal = () => {
               <div class="about-info">
                 <h4>30+ ЛЕТ ОПЫТА</h4>
                 <p>
-                  Мы успешно работаем на рынке с 1993 года, являясь одним из ведущих российских
-                  производителей. Располагаем собственным высокотехнологичным производством в
-                  Московской области.
+                  <strong>СКОРПИО-АРОМАТ™</strong> — один из ведущих российских производителей
+                  пищевых ароматизаторов, работающий с 1993 года. За более чем 30 лет компания
+                  сформировала ассортимент из свыше 10 000 ароматических композиций для пищевой
+                  промышленности. Ассортимент отдушек составляет более 1000 наименований.
                 </p>
               </div>
             </div>
@@ -114,9 +109,11 @@ const openContactModal = () => {
               <div class="about-info">
                 <h4>КОНТРОЛЬ КАЧЕСТВА</h4>
                 <p>
-                  Наша современная лаборатория проводит многоступенчатое тестирование продукции,
-                  гарантируя стабильность аромата, безопасность состава и точное соответствие
-                  заявленным нотам.
+                  Лаборатория <strong>СКОРПИО-АРОМАТ™</strong> обеспечивает тестирование каждого
+                  продукта, проверяется устойчивость в различных средах, стабильность при хранении,
+                  поведение при нагреве и повторяемость аромата. Такой подход делает нашу продукцию
+                  одинаково удобной как для промышленных предприятий, так и для hand-made
+                  мастерских, интернет-магазинов и частных покупателей.
                 </p>
               </div>
             </div>
@@ -125,13 +122,16 @@ const openContactModal = () => {
               <div class="about-info">
                 <h4>СЕРВИС И ПОДДЕРЖКА</h4>
                 <p>
-                  Обеспечиваем оперативную доставку по всей России и СНГ. Предлагаем удобную фасовку
-                  от 1 кг и предоставляем профессиональную технологическую поддержку на всех этапах
-                  сотрудничества.
+                  Мы предлагаем оперативную доставку по России и стран СНГ, профессиональные
+                  консультации технолога и удобную фасовку — от небольших объёмов для тестов до
+                  промышленных партий. <strong>СКОРПИО-АРОМАТ™</strong> — это надёжный
+                  производитель, который соединяет опыт, качество и современные технологии.
                 </p>
               </div>
             </div>
           </div>
+
+          <h3 class="about-slogan">Мы совершенствуемся вместе с природой.</h3>
 
           <router-link to="/products" class="link-arrow"
             >СМОТРЕТЬ РАЗДЕЛ «ПРОДУКЦИЯ» &rarr;</router-link
@@ -149,14 +149,14 @@ const openContactModal = () => {
           <div class="stat-icon">📦</div>
           <div class="stat-info">
             <h4>Ассортимент</h4>
-            <p>1000+ вкусов</p>
+            <p>10 000 вкусов</p>
           </div>
         </div>
         <div class="stat-item">
           <div class="stat-icon">⚖️</div>
           <div class="stat-info">
             <h4>Фасовка</h4>
-            <p>1 | 5 | 10 | 25 л</p>
+            <p>1 | 5 | 10 кг</p>
           </div>
         </div>
         <div class="stat-item">
@@ -184,12 +184,49 @@ const openContactModal = () => {
         <div class="main-card__content">
           <h2 class="section-title">Наши преимущества</h2>
           <ul class="advantages-list">
-            <li>Высокие требования к сырью и поставщикам сырья.</li>
-            <li>Постоянное совершенствование технологии производства.</li>
-            <li>Качественные ингредиенты, без ГМО и спирта.</li>
-            <li>Самый широкий ассортимент: более 1000 востребованных ароматов.</li>
-            <li>Производство по стандарту ISO 22000:2005 SGS.</li>
-            <li>Вся продукция имеет право на сертификацию EUR1.</li>
+            <li>
+              Более чем <span class="text-accent">30-ти летний производственный опыт</span> работы.
+            </li>
+            <li>
+              <span class="text-accent">Индивидуальный подбор</span> ароматизаторов в кратчайшие
+              сроки.
+            </li>
+            <li>
+              <span class="text-accent">Разработка и доработка</span> вкусоароматических добавок по
+              желанию клиента.
+            </li>
+            <li>
+              <span class="text-accent">Высокопрофессиональное технологическое сопровождение</span>,
+              включая оценку качества готового продукта с учетом синергизма других компонентов.
+            </li>
+            <li>
+              <span class="text-accent">Оптимальное соотношение «цена- качество»</span>, гибкая
+              система скидок, товарный кредит и отпускная цена в российских рублях.
+            </li>
+            <li>
+              Ассортимент жидких, сухих и эмульсионных вкусоароматических добавок насчитывает
+              <span class="text-accent">более 10 000 наименований</span> для всех отраслей пищевой
+              промышленности.
+            </li>
+            <li>
+              Ассортимент отдушек составляет
+              <span class="text-accent">более 1000 наименований</span>.
+            </li>
+            <li>
+              Сертификация Завода пищевых ароматизаторов в соответствии с международными стандартами
+              качества ISO9001:2000 с 2007 года. (в настоящее время -
+              <span class="text-accent">ISO9001:2015</span>),
+              <span class="text-accent">ISO22000:2019</span>
+            </li>
+            <li>
+              <span class="text-accent">Удобная логистика</span>: самовывоз (24 часа в сутки с
+              территории завода), доставка по Москве и МО собственным автотранспортом и отправка в
+              регионы любыми транспортными компаниями по желанию клиента.
+            </li>
+            <li>
+              Внимательный и вежливый коллектив.
+              <span class="text-accent">Профессиональная команда</span>
+            </li>
           </ul>
           <p class="advantages-note">
             Мы оперативно подберем Ароматизаторы под ваш продукт и бесплатно отправим Вам в руки
@@ -403,32 +440,14 @@ body {
     .hero__lead {
       font-size: 1.4rem;
       line-height: 1.4;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       font-weight: 500;
     }
 
-    .hero__list {
-      list-style: none;
-      padding: 0;
+    .hero__text {
       font-size: 1.2rem;
       line-height: 1.6;
-
-      li {
-        margin-bottom: 15px;
-        display: flex;
-        align-items: baseline;
-        gap: 12px;
-
-        &::before {
-          content: "";
-          display: block;
-          width: 8px;
-          height: 8px;
-          background-color: $accent;
-          border-radius: 50%;
-          flex-shrink: 0;
-        }
-      }
+      margin-bottom: 15px;
     }
   }
 
@@ -548,6 +567,16 @@ body {
     font-style: italic;
     color: $muted;
     margin-bottom: 30px;
+  }
+  .main-card {
+    @media (min-width: 900px) {
+      .main-card__content {
+        flex: 1.4;
+      }
+      .main-card__media {
+        flex: 1;
+      }
+    }
   }
 }
 

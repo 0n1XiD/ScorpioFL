@@ -22,8 +22,8 @@ const features: {
   {
     icon: shoppingIcon,
     title: "АССОРТИМЕНТ",
-    subtitle: "Более 1000 видов ароматизаторов и отдушек",
-    detail: "БОЛЕЕ 1000 ВИДОВ АРОМАТИЗАТОРОВ И ОТДУШЕК",
+    subtitle: "Более 10 000 видов ароматизаторов и отдушек",
+    detail: "БОЛЕЕ 10 000 ВИДОВ АРОМАТИЗАТОРОВ И ОТДУШЕК",
   },
   {
     icon: microscopeIcon,
@@ -82,9 +82,9 @@ const featureBlocks = chunkArray(features, 3);
 <style lang="scss" scoped>
 $bg: #020617;
 $card-bg: #0f172a;
-$accent: #D4AF37;
+$accent: #d4af37;
 $green: #4caf50;
-$text: #EAE0D5;
+$text: #eae0d5;
 $border-radius: 12px;
 
 .section-company-features {
@@ -138,7 +138,7 @@ $border-radius: 12px;
     width: 64px;
     height: 64px;
     margin-bottom: 15px;
-    
+
     img {
       width: 100%;
       height: 100%;
