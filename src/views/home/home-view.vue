@@ -90,7 +90,7 @@ const openContactModal = () => {
       <div class="main-card reveal">
         <div class="main-card__content">
           <h2 class="section-title">О КОМПАНИИ</h2>
-          <h3 class="about-slogan">Совершенство качества — совершенство вкуса</h3>
+          <h3 class="about-slogan">Мы совершенствуемся вместе с природой.</h3>
 
           <div class="about-grid">
             <div class="about-item">
@@ -130,8 +130,6 @@ const openContactModal = () => {
               </div>
             </div>
           </div>
-
-          <h3 class="about-slogan">Мы совершенствуемся вместе с природой.</h3>
 
           <router-link to="/products" class="link-arrow"
             >СМОТРЕТЬ РАЗДЕЛ «ПРОДУКЦИЯ» &rarr;</router-link
@@ -264,6 +262,8 @@ const openContactModal = () => {
 </template>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 $bg: #020617;
 $card-bg: #0f172a;
 $accent: #d4af37;
@@ -328,7 +328,7 @@ body {
     box-shadow: 0 4px 10px rgba($primary, 0.3);
 
     &:hover {
-      background-color: darken($primary, 8%);
+      background-color: color.adjust($primary, $lightness: -8%);
       transform: translateY(-2px);
     }
   }
@@ -399,7 +399,11 @@ body {
   align-items: center;
   color: $white;
   margin-bottom: 40px;
-  margin-top: 160px;
+  margin-top: 125px;
+
+  @media (min-width: 768px) {
+    margin-top: 160px;
+  }
 
   &__overlay {
     position: absolute;
@@ -422,12 +426,14 @@ body {
   }
 
   &__title {
+    padding-top: 35px;
     font-size: 2.5rem;
     font-weight: 900;
     line-height: 1.2;
     margin-bottom: 25px;
 
     @media (min-width: 768px) {
+      padding-top: 0px;
       font-size: 3.5rem;
     }
   }
@@ -436,6 +442,10 @@ body {
     max-width: 800px;
     margin-bottom: 35px;
     color: $white;
+
+    @media (min-width: 520px) {
+      margin-left: 20px;
+    }
 
     .hero__lead {
       font-size: 1.4rem;
@@ -532,7 +542,7 @@ body {
     transition: color 0.2s;
 
     &:hover {
-      color: darken($accent, 10%);
+      color: color.adjust($accent, $lightness: -10%);
     }
   }
 }

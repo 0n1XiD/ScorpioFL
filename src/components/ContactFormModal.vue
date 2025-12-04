@@ -216,9 +216,11 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 $dark-bg: #141414;
 $overlay-bg: rgba(0, 0, 0, 0.8);
-$text-light: #EAE0D5;
+$text-light: #eae0d5;
 $text-muted: #9ca3af;
 $input-border: #444444;
 $input-focus: #4caf50;
@@ -400,7 +402,7 @@ $border-radius: 6px;
       transition: background-color 0.2s;
 
       &:hover {
-        background-color: darken($green-btn, 8%);
+        background-color: color.adjust($green-btn, $lightness: -8%);
       }
     }
 
@@ -462,7 +464,7 @@ $border-radius: 6px;
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: darken($green-btn, 8%);
+      background-color: color.adjust($green-btn, $lightness: -8%);
     }
   }
 }

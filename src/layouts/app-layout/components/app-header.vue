@@ -86,6 +86,7 @@ const closeMobileMenu = () => {
       </div>
 
       <div class="mobile-menu header__mobile-menu" v-if="mobileMenuOpen">
+        <div class="mobile-menu__description">Совершенство качества - совершенство вкуса!</div>
         <router-link
           to="/"
           class="mobile-menu__link"
@@ -123,14 +124,16 @@ const closeMobileMenu = () => {
 </template>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 $bg-top: #0f172a;
 $text-top: #eae0d5;
 $border-top: #1e293b;
 
 $color-red: #d32f2f;
 $color-green: #4caf50;
-$color-hover-green: darken($color-green, 10%);
-$color-hover-red: darken($color-red, 10%);
+$color-hover-green: color.adjust($color-green, $lightness: -10%);
+$color-hover-red: color.adjust($color-red, $lightness: -10%);
 
 .header {
   position: fixed;
@@ -397,6 +400,14 @@ $color-hover-red: darken($color-red, 10%);
 }
 
 .mobile-menu {
+  &__description {
+    padding: 16px 20px;
+    color: #9ca3af;
+    font-size: 0.9rem;
+    font-style: italic;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
   &__link {
     display: block;
     padding: 16px 20px;
