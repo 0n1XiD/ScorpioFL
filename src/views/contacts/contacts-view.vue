@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { onMounted, nextTick, ref, watch } from "vue";
-import placeImg from "@/assets/images/place.jpg";
+import placeImg from "@/assets/images/place2.jpg";
 import schemePassenger from "@/assets/images/scheme_passenger.png";
 import schemeTruck from "@/assets/images/scheme_truck.png";
 import emailIcon from "@/assets/images/icons/email.svg";
@@ -237,6 +237,7 @@ $border-radius: 16px;
       height: 300px;
       width: 100%;
       position: relative;
+      overflow: hidden;
     }
 
     &__image {
@@ -244,6 +245,12 @@ $border-radius: 16px;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.3s ease;
+      transform: scale(1.5);
+
+      &:hover {
+        transform: scale(1.4);
+      }
     }
   }
 
@@ -337,10 +344,10 @@ $border-radius: 16px;
       }
 
       &__media {
-        flex: 1 1 40%;
+        flex: 1 1 50%;
         height: auto;
         min-height: 100%;
-        max-width: 500px;
+        max-width: 650px;
       }
     }
   }

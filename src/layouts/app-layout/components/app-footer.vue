@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import logoSvg from "@/assets/images/icons/logo.png";
+import logoSvg from "@/assets/images/icons/logo2.png";
 
 const links = [
   { text: "Наша продукция", href: "/products" },
@@ -34,7 +34,7 @@ const phone = "+7 (495) 935-73-64";
               class="marketplace-link wb"
             >
               <span class="mp-name">Wildberries</span>
-              <span class="mp-seller">Кветка</span>
+              <span class="mp-seller">ООО « Скорпио-Кветка»</span>
             </a>
             <span class="divider">|</span>
             <a

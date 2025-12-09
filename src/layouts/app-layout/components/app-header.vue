@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useRoute } from "vue-router";
 import ContactFormModal from "@/components/ContactFormModal.vue";
-import logoSvg from "@/assets/images/icons/logo.png";
+import logoSvg from "@/assets/images/icons/logo2.png";
 
 const mobileMenuOpen = ref(false);
 
